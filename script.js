@@ -5,20 +5,17 @@ let maze = [
     [1, 0, 0, 0, 1],
     [1, 0, 1, 0, 1],
     [1, 0, 1, 0, 1],
-    [1, 1, 1, 0, 1]
+    [1, 1, 1, 2, 1]
   ];
 
-  // Define the size of each maze block
   let blockSize = 50;
-
-  // Initialize the player's starting position
-  let playerX = 1; // Player's x-coordinate in the maze
-  let playerY = 1; // Player's y-coordinate in the maze
-
+  let playerX = 1, playerY = 1;
   // Flag to check if the game is won
   let gameWon = false;
 
-  function setup() {
+  
+
+function setup() {
     createCanvas(750, 600, WEBGL);
     noStroke();
   
@@ -26,46 +23,41 @@ let maze = [
     txt.position(width / 4, height / 4);
     txt.style('font-size', '40px');
     txt.style('font-weight', 'bold');
-    txt.style('color', 'green');
+    txt.style('color', 'blue');
     txt.style('width', '400px');
-    txt.html("You found hope! Even though you are afraid of the darkness, you still can always find hope. There will always be a light that you can follow.");
+    txt.html("You win!!");
     txt.hide(); // txt.show() will bring it back
-  }
+}
 
-  let camX = (playerX - maze[0].length / 2) * blockSize;
-  let camY = (playerY - maze.length / 2) * blockSize;
-  let camZ = (height / 2) / tan(PI / 6);
+function draw() {
+    background(0);
 
-  camera(camX, camY, camZ, camX, camY, 0, 0, 1, 0);
-
-  ambientLight(20, 20, 20);
-
-  let lightX = (playerX - maze[0].length / 2) * blockSize;
-  let lightY = (playerY - maze.length / 2) * blockSize;
-  pointLight(255, 255, 255, lightX, lightY, 100);
-  
-
-  for (let y = 0; y < maze.length; y++) {
-    for (let x = 0; x < maze[0].length; x++) {
-      push();
-      translate((x - maze[0].length / 2) * blockSize, (y - maze.length / 2) * blockSize, 0);
-      if (maze[y][x] === 1) {
-        box(blockSize);
-      } else if (maze[y][x] === 2) {
-        fill(255, 0, 0);
-        box(blockSize);
-        fill(255);
-      }
-      pop();
+    if(gameWon) {
+        textSize(30);
+        fill(255)
+        textAlign(CENTER, CENTER);
+        text("You Win!", width/2, height/2);
+        txt.show();
+        return;
     }
-  }
 
-  push();
-  translate((playerX - maze[0].length / 2) * blockSize, (playerY - maze.length / 2) * blockSize, blockSize / 2);
-  box(blockSize * 0.5);
-  pop();
-  
-  function keyPressed() {
+    let camX = (playerX - maze[0].length / 2) * blockSize;
+    let camY = (playerY - maze.length / 2) * blockSize;
+    let camZ = (height / 2) / tan(PI / 6);
+
+    camera(camX, camY, camZ, camX, camY, 0, 0, 1, 0);
+
+    ambientLight(20, 20, 20);
+
+    let lightX = (playerX - maze[0].length / 2) * blockSize;
+    let lightY = (playerY - maze.length / 2) * blockSize;
+    pointLight(255, 255, 255, lightX, lightY, 100);
+    
+    emissiveMaterial(0, 50, 0);
+    translate(0,0,50);
+    
+    
+function keyPressed() {
     let nextX = playerX;
     let nextY = playerY;
 
@@ -95,4 +87,5 @@ let maze = [
       gameWon = true; // Set gameWon to true to trigger winning condition
     }
   }
-  
+
+}
