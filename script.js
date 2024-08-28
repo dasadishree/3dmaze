@@ -23,15 +23,15 @@ function setup() {
     txt.position(width / 4, height / 4);
     txt.style('font-size', '40px');
     txt.style('font-weight', 'bold');
-    txt.style('color', 'blue');
+    txt.style('color', 'green');
     txt.style('width', '400px');
-    txt.html("You win!!");
+    txt.html("You found hope! Even though you are afraid of the darkness, you still can always find hope. There will always be a light that you can follow.");
     txt.hide(); // txt.show() will bring it back
 }
 
 function draw() {
     background(0);
-
+    
     if(gameWon) {
         textSize(30);
         fill(255)
@@ -55,7 +55,27 @@ function draw() {
     
     emissiveMaterial(0, 50, 0);
     translate(0,0,50);
-    
+
+    for (let y = 0; y < maze.length; y++) {
+        for (let x = 0; x < maze[0].length; x++) {
+          push();
+          translate((x - maze[0].length / 2) * blockSize, (y - maze.length / 2) * blockSize, 0);
+          if (maze[y][x] === 1) {
+            box(blockSize);
+          } else if (maze[y][x] === 2) {
+            fill(255, 0, 0);
+            box(blockSize);
+            fill(255);
+          }
+          pop();
+        }
+      }
+      
+      push();
+      translate((playerX - maze[0].length / 2) * blockSize, (playerY - maze.length / 2) * blockSize, blockSize / 2);
+      box(blockSize * 0.5);
+      pop();
+    }
     
 function keyPressed() {
     let nextX = playerX;
@@ -87,5 +107,4 @@ function keyPressed() {
       gameWon = true; // Set gameWon to true to trigger winning condition
     }
   }
-
-}
+    
