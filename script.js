@@ -11,12 +11,32 @@ let maze = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1]
   ];
 
+  // let level = 0;
+
+  // let levels = {
+  //   // Define your maze layout here
+  //   [[1, 1, 1, 1, 1, 1, 1, 1, 1],
+  //   [1, 0, 0, 0, 1, 0, 0, 0, 1],
+  //   [1, 0, 1, 1, 1, 0, 1, 1, 1],
+  //   [1, 0, 0, 0, 0, 0, 0, 0, 1],
+  //   [1, 0, 1, 1, 1, 1, 1, 0, 1],
+  //   [1, 1, 1, 0, 0, 0, 1, 0, 1],
+  //   [2, 0, 0, 0, 1, 0, 0, 0, 1],
+  //   [1, 1, 1, 1, 1, 1, 1, 1, 1]],
+  //   [[1, 1, 1, 1, 1],
+  //    [1, 0, 0, 0, 1],
+  //    [1, 0, 1, 0, 1],
+  //    [1, 0, 1, 0, 1],
+  //    [1, 1, 1, 2, 1]]
+  // };
+
   let blockSize = 50;
   let playerX = 1, playerY = 1;
   // Flag to check if the game is won
   let gameWon = false;
 
-  
+  // const currentLevel = levels[level];
+  // setMap(currentLevel);
 
 function setup() {
     createCanvas(750, 600, WEBGL);
@@ -28,7 +48,7 @@ function setup() {
     txt.style('font-weight', 'bold');
     txt.style('color', 'green');
     txt.style('width', '400px');
-    txt.html("You found hope! Even though you are afraid of the darkness, you still can always find hope. There will always be a light that you can follow.");
+    txt.html("You win! Great job!");
     txt.hide(); // txt.show() will bring it back
 }
 
@@ -109,4 +129,39 @@ function keyPressed() {
       playerY = nextY;
       gameWon = true; // Set gameWon to true to trigger winning condition
     }
+
+//     //win condition
+// afterInput(() => {
+//   const numberCovered = tilesWith(goal, player).length;
+//   const targetNumber = tilesWith(goal).length;
+//   const numCovered = tilesWith(enemy, player).length;
+//   const targetNum = tilesWith(enemy).length;
+
+//   if (numberCovered === targetNumber) {
+//       // increase the current level number
+//       level = level + 1;
+
+//       const currentLevel = levels[level];
+
+//       // make sure the level exists and if so set the map
+//       if (currentLevel !== undefined) {
+//           setMap(currentLevel);
+//       } else {
+//           addText("you win!", { y: 4, color: color`8` });
+//       }
+//   }
+//   if(numCovered === targetNum){
+//     console.log("Game over!");
+//     addText("Game Over", { x: 5, y: 7, color: color`3` });
+//     setTimeout(() => {
+//     }, 2000);
+//   }
+// });
+
+
+// //restart
+// onInput("j", () => {
+//   const currentLevel = levels[level];
+//   if (currentLevel !== undefined) setMap(currentLevel);
+// });
   }
