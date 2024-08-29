@@ -1,11 +1,14 @@
 // Define the maze as a 2D array
 let maze = [
     // Define your maze layout here
-    [1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 1],
-    [1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1],
-    [1, 1, 1, 2, 1]
+    [1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 1, 0, 0, 0, 1],
+    [1, 0, 1, 1, 1, 0, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 1, 1, 1, 1, 1, 0, 1],
+    [1, 1, 1, 0, 0, 0, 1, 0, 1],
+    [2, 0, 0, 0, 1, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1]
   ];
 
   let blockSize = 50;
@@ -107,4 +110,3 @@ function keyPressed() {
       gameWon = true; // Set gameWon to true to trigger winning condition
     }
   }
-    
