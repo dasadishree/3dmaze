@@ -1,5 +1,8 @@
 # 3dmaze
 
+https://dasadishree.github.io/3dmaze/
+finished deployed link!! ^
+
 # how to play
 - use the up, down, left, and right arrow keys to move the player block
 - avoid the walls
