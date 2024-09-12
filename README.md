@@ -2,6 +2,7 @@
 
 https://dasadishree.github.io/3dmaze/
 finished deployed link!! ^
+<img width="1470" alt="Screenshot 2024-09-12 at 6 26 40 PM" src="https://github.com/user-attachments/assets/896dbda0-2946-44ee-b9bf-83c40e63d74f">
 
 # how to play
 - use the up, down, left, and right arrow keys to move the player block
